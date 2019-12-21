@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#dedede">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="25dp"
+        android:background="@drawable/day4"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_marginTop="20sp"
+            android:layout_marginRight="40sp"
+            android:layout_marginLeft="40sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Биология"
+            android:textColor="#FF0000"
+            android:padding="20sp"
+            android:gravity="center"
+            android:background="@drawable/fields2"
+            android:textSize="24sp"/>
+
+        <EditText
+            android:id="@+id/Dz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginTop="40sp"
+            android:paddingTop="40sp"
+            android:paddingBottom="40sp"
+            android:paddingLeft="9sp"
+            android:background="@drawable/fields2"
+            android:textColor="#FF0000"
+            android:textColorHint="#FF0000"
+            android:hint="Домашнее задание"
+            android:text="" />
+
+        <Button
+            android:id="@+id/Btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/botton2"
+            android:layout_marginLeft="80sp"
+            android:layout_marginRight="80sp"
+            android:layout_marginBottom="10sp"
+            android:layout_marginTop="110sp"
+            android:padding="10sp"
+            android:fontFamily="monospace"
+            android:textAllCaps="false"
+            android:textSize="24sp"
+            android:textColor="#BD2828"
+            android:textStyle="italic"
+            android:text="Применить" />
+    </LinearLayout>
+</LinearLayout>
