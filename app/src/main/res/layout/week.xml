@@ -23,6 +23,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
+            android:paddingBottom="5dp"
             android:background="@drawable/day1"
             android:orientation="vertical">
             <TextView
@@ -47,6 +48,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
+            android:paddingBottom="5dp"
             android:background="@drawable/day2"
             android:orientation="vertical">
             <TextView
@@ -71,6 +73,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
+            android:paddingBottom="5dp"
             android:background="@drawable/day3"
             android:orientation="vertical">
             <TextView
@@ -95,6 +98,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
+            android:paddingBottom="5dp"
             android:background="@drawable/day4"
             android:orientation="vertical">
             <TextView
@@ -119,6 +123,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
+            android:paddingBottom="5dp"
             android:background="@drawable/day5"
             android:orientation="vertical">
             <TextView
@@ -143,6 +148,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
+            android:paddingBottom="5dp"
             android:background="@drawable/day6"
             android:orientation="vertical">
             <TextView
