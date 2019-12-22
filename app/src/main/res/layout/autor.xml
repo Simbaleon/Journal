@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#dedede"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingTop="41dp"
+            app:srcCompat="@drawable/lock" />
+
+        <TextView
+            android:id="@+id/Auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:textAlignment="center"
+            android:textColor="#7a7a7a"
+            android:text="Авторизация"
+            android:textSize="25dp" />
+
+        <EditText
+            android:id="@+id/login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Login"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:background="@drawable/fields"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:textColor="#c73e3e" />
+
+        <EditText
+            android:id="@+id/Pas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="30sp"
+            android:padding="10dp"
+            android:background="@drawable/fields"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textColor="#c73e3e" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="26dp"
+        android:layout_marginRight="26dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
+        <Button
+            android:id="@+id/enter1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/botton"
+            android:layout_marginBottom="14dp"
+            android:paddingTop="7dp"
+            android:paddingBottom="7dp"
+            android:fontFamily="monospace"
+            android:textAllCaps="false"
+            android:textSize="24dp"
+            android:textColor="#cfcaca"
+            android:text="Ученик" />
+        <Button
+            android:id="@+id/enter3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/botton"
+            android:layout_marginBottom="10dp"
+            android:paddingTop="7dp"
+            android:paddingBottom="7dp"
+            android:fontFamily="monospace"
+            android:textAllCaps="false"
+            android:textSize="24dp"
+            android:textColor="#cfcaca"
+            android:text="Родитель" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/enter2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/botton"
+                android:layout_marginBottom="14dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"
+                android:fontFamily="monospace"
+                android:textAllCaps="false"
+                android:textSize="24dp"
+                android:textColor="#cfcaca"
+                android:text="Учитель" />
+            <Button
+                android:id="@+id/enter4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/botton"
+                android:layout_marginBottom="10dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"
+                android:fontFamily="monospace"
+                android:textAllCaps="false"
+                android:textSize="24dp"
+                android:textColor="#cfcaca"
+                android:text="Директор" />
+        </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
