@@ -54,12 +54,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (T4) enter4.setBackgroundResource(R.drawable.enter);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://rawgit.com/startandroid/data/master/messages/messages1.json")
+                .baseUrl("https://rawgit.com/startandroid/data/master/messages/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         Server messagesApi = retrofit.create(Server.class);
 
-        Call<JSONObject> messages = messagesApi.chechFromServer("123", "567");
+
     }
     public void addListenerOnButton() {
             login = (EditText) findViewById(R.id.login);
