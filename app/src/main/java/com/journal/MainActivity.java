@@ -1,7 +1,6 @@
 package com.journal;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -18,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private long backPressedTime;
     private Toast backToast;
 
-    private static final String login_txt = "simbaleon", pass_txt = "1223";
+    private static final String login_txt = "", pass_txt = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
