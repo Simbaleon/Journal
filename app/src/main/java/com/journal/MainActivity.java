@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Server messagesApi = retrofit.create(Server.class);
 
 
+
     }
     public void addListenerOnButton() {
             login = (EditText) findViewById(R.id.login);

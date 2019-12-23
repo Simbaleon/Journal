@@ -7,8 +7,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="25dp"
-        android:background="@drawable/day4"
+        android:layout_margin="17dp"
+        android:background="@drawable/day"
         android:orientation="vertical">
 
         <TextView
@@ -18,11 +18,11 @@
             android:layout_marginLeft="40sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Математика"
-            android:textColor="#FF0000"
+            android:text="Предмет"
+            android:textColor="#D50000"
             android:padding="20sp"
             android:gravity="center"
-            android:background="@drawable/fields2"
+            android:background="@drawable/fields_new"
             android:textSize="24sp"/>
 
         <EditText
@@ -37,9 +37,9 @@
             android:paddingTop="40sp"
             android:paddingBottom="40sp"
             android:paddingLeft="9sp"
-            android:background="@drawable/fields2"
-            android:textColor="#FF0000"
-            android:textColorHint="#FF0000"
+            android:background="@drawable/fields_new"
+            android:textColor="#D50000"
+            android:textColorHint="#D50000"
             android:hint="Домашнее задание"
             android:text="" />
 
@@ -47,7 +47,7 @@
             android:id="@+id/Btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/botton2"
+            android:background="@drawable/botton"
             android:layout_marginLeft="80sp"
             android:layout_marginRight="80sp"
             android:layout_marginBottom="10sp"
@@ -56,7 +56,7 @@
             android:fontFamily="monospace"
             android:textAllCaps="false"
             android:textSize="24sp"
-            android:textColor="#BD2828"
+            android:textColor="#cfcaca"
             android:textStyle="italic"
             android:text="Применить" />
     </LinearLayout>

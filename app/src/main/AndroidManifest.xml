@@ -28,42 +28,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:screenOrientation="portrait" android:name=".Rus">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:screenOrientation="portrait" android:name=".Geo">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:screenOrientation="portrait" android:name=".Bio">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:screenOrientation="portrait" android:name=".Fiz">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:screenOrientation="portrait" android:name=".Him">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:screenOrientation="portrait" android:name=".Inf">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>

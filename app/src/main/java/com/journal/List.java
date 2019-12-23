@@ -62,7 +62,6 @@ public class List extends AppCompatActivity implements View.OnClickListener {
 
         Intent intent = getIntent();
         RaspForStudent();
-        RaspForTeacher();
     }
 
     public void RaspForStudent() {
