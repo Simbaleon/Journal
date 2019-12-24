@@ -20,7 +20,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
 
     private Button enter1, enter2, enter3, enter4;
     private EditText login, pass;
@@ -165,7 +165,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             {
                                 if (!T1 && !T2 && !T4 && T3){
                                     if ((login.getText().toString().equals(login_txt)) && (pass.getText().toString().equals(pass_txt))) {
-                                        Intent intent = new Intent(MainActivity.this, List.class);
+                                        Intent intent = new Intent(MainActivity.this, Parent.class);
                                         startActivity(intent);
                                     } else Toast.makeText(
                                             MainActivity.this, "Неверный логин или пароль",
@@ -243,10 +243,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         backPressedTime = System.currentTimeMillis();
     }
-
-    @Override
-    public void onClick(View v) {
-
-    }
-
 }

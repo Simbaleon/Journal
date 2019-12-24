@@ -33,18 +33,14 @@ public class Teacher extends AppCompatActivity {
     LinearLayout.LayoutParams forLessons = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
     LinearLayout.LayoutParams forDz = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
-    public void teacher (String name, String surname, String id, String login, String pass, String position,
-                    String email, String phone, String qualification, boolean is_admin) {
+    public void teacher(String name, String surname, String id, String login, String pass, String position,
+                        String email, String phone, String qualification, boolean is_admin) {
     }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Toast.makeText(
-                Teacher.this, "В onCreate",
-                Toast.LENGTH_SHORT
-        ).show();
         setContentView(R.layout.week);
         mon = findViewById(R.id.mon);
         Window w = getWindow();
@@ -84,58 +80,59 @@ public class Teacher extends AppCompatActivity {
         btns = new Button[40];
         textView = new TextView[40];
         int nowText = 0;
-        array = new String[2];
+        array = new String[5];
+        array[0] = "Математика:7;Русский язык:45;География:16;Физика:5;Литература:58;";
+        array[1] = "Русский язык:45;Математика:7;Русский язык:45;География:16;Физика:5;Литература:58;";
+        array[2] = "Физика:5;Математика:7;Русский язык:45;География:16;Литература:58;";
+        array[3] = "География:16;Физика:5;Литература:58;Математика:7;Русский язык:45";
+        array[4] = "Математика:7;Русский язык:45;География:16;Физика:5;Литература:58;";
         for (int d = 1; d < 6; d++) {
             Context style_less = new ContextThemeWrapper(findViewById(hashMap.get(d)).getContext(), hashMap.get(d + 10));
             Context style_dz = new ContextThemeWrapper(findViewById(hashMap.get(d)).getContext(), hashMap.get(d + 5));
-            for (int i = 0; i < array.length; i++) {
-                array[0] = "9B:7;8B:0";
-                array[1] = "4A:45";
-                String[] a = array[i].split(";");
-                for (int j = 0; j < a.length; j++) {
-                    String[] b = a[j].split(":");
-                    btns[nowText] = new Button(style_less);
-                    btns[nowText].setBackgroundResource(hashMap.get(d + 15));
-                    btns[nowText].setId(USERID + countID);
-                    btns[nowText].setText(b[0]);
-                    LinearLayout list_lessons = findViewById(hashMap.get(d));
-                    list_lessons.addView(btns[nowText], forLessons);
-                    final int finalNowText = nowText;
-                    btns[nowText].setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            pr = finalNowText;
-                            Toast.makeText(
-                                    Teacher.this, "В onClicke " + pr,
-                                    Toast.LENGTH_SHORT
-                            ).show();
-                            is_newdz = true;
-                            Intent intent = new Intent(Teacher.this, ForTeacher.class);
-                            String[] a = new String[2];
-                            a[0] = ((Button) v).getText().toString();
-                            a[1] = textView[pr].getText().toString();
-                            intent.putExtra("teacher", a);
-                            startActivityForResult(intent, 17);
-                        }
-                    });
-                    if (is_newdz){
-                        is_newdz = false;
-                    }else {
-                        countID++;
-                        textView[nowText] = new TextView(style_dz);
-                        textView[nowText].setText(b[1]);
-                        LinearLayout list_dz = findViewById(hashMap.get(d));
-                        list_dz.addView(textView[nowText], forDz);
-                        nowText++;
+            String[] a = array[d - 1].split(";");
+            for (int j = 0; j < a.length; j++) {
+                String[] b = a[j].split(":");
+                btns[nowText] = new Button(style_less);
+                btns[nowText].setBackgroundResource(hashMap.get(d + 15));
+                btns[nowText].setId(USERID + countID);
+                btns[nowText].setText(b[0]);
+                LinearLayout list_lessons = findViewById(hashMap.get(d));
+                list_lessons.addView(btns[nowText], forLessons);
+                final int finalNowText = nowText;
+                btns[nowText].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        pr = finalNowText;
+                        Toast.makeText(
+                                Teacher.this, "В onClicke " + pr,
+                                Toast.LENGTH_SHORT
+                        ).show();
+                        is_newdz = true;
+                        Intent intent = new Intent(Teacher.this, ForTeacher.class);
+                        String[] a = new String[2];
+                        a[0] = ((Button) v).getText().toString();
+                        a[1] = textView[pr].getText().toString();
+                        intent.putExtra("teacher", a);
+                        startActivityForResult(intent, 17);
                     }
+                });
+                if (is_newdz) {
+                    is_newdz = false;
+                } else {
+                    countID++;
+                    textView[nowText] = new TextView(style_dz);
+                    textView[nowText].setText(b[1]);
+                    LinearLayout list_dz = findViewById(hashMap.get(d));
+                    list_dz.addView(textView[nowText], forDz);
+                    nowText++;
                 }
             }
         }
     }
+
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         textView[pr].setText(data.getStringExtra("dz"));
     }
-
 
 
     @Override
@@ -150,5 +147,4 @@ public class Teacher extends AppCompatActivity {
     }
 
 }
-
 
