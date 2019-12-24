@@ -100,28 +100,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         public void onClick(View v) {
                             {
                                 if (!T1 && !T3 && !T4 && T2){
-                                    forTeacher.enqueue(new Callback<JSONObject>() {
-                                                           @Override
-                                                           public void onResponse(Call<JSONObject> call, Response<JSONObject> response) {
-                                                               jsonObject = response.body();
-                                                           }
-
-                                                           @Override
-                                                           public void onFailure(Call<JSONObject> call, Throwable t) {
-
-                                                           }
-                                                       });
-                                    try {
-                                        if (jsonObject.getInt("resultCode") == 1){
-                                            Toast.makeText(
-                                                    MainActivity.this, "Заполинте поля login и password",
-                                                    Toast.LENGTH_SHORT
-                                            ).show();                                        }
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
+//                                    forTeacher.enqueue(new Callback<JSONObject>() {
+//                                                           @Override
+//                                                           public void onResponse(Call<JSONObject> call, Response<JSONObject> response) {
+//                                                               jsonObject = response.body();
+//                                                           }
+//
+//                                                           @Override
+//                                                           public void onFailure(Call<JSONObject> call, Throwable t) {
+//
+//                                                           }
+//                                                       });
+//                                    try {
+//                                        if (jsonObject.getInt("resultCode") == 1){
+//                                            Toast.makeText(
+//                                                    MainActivity.this, "Заполинте поля login и password",
+//                                                    Toast.LENGTH_SHORT
+//                                            ).show();                                        }
+//                                    } catch (JSONException e) {
+//                                        e.printStackTrace();
+//                                    }
+                                    Toast.makeText(
+                                            MainActivity.this, "Ошибка",
+                                            Toast.LENGTH_SHORT
+                                    ).show();
                                     if ((login.getText().toString().equals(login_txt)) && (pass.getText().toString().equals(pass_txt))) {
-                                        Intent intent = new Intent(MainActivity.this, List.class);
+                                        Intent intent = new Intent(MainActivity.this, Teacher.class);
                                         startActivity(intent);
                                     } else Toast.makeText(
                                             MainActivity.this, "Неверный логин или пароль",

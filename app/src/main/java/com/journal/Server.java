@@ -9,13 +9,13 @@ import retrofit2.http.POST;
 public interface Server {
 
 @GET("myPerson")
-    Call<JSONObject> chechFromServer(String login, String password);
+    Call<JSONObject> checkFromServer(String login, String password);
 
 @GET("getRasp")
     Call<JSONObject> getRaspFropServer (int id, int data);
 
 @GET("getStudent")
-    Call<JSONObject> getStudentFromServer (String lofin, String password);
+    Call<JSONObject> getStudentFromServer (String login, String password);
 
 @GET("setStudentElective")
     Call<JSONObject> setStudentElectiveToServer(int id, String electiveName);

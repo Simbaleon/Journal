@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/klas"
             android:layout_marginTop="20sp"
             android:layout_marginRight="40sp"
             android:layout_marginLeft="40sp"
@@ -29,8 +29,8 @@
             android:id="@+id/Dz"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
+            android:ems="12"
+            android:inputType="textMultiLine"
             android:layout_marginLeft="10sp"
             android:layout_marginRight="10sp"
             android:layout_marginTop="40sp"
@@ -40,7 +40,7 @@
             android:background="@drawable/fields_new"
             android:textColor="#D50000"
             android:textColorHint="#D50000"
-            android:hint="Домашнее задание"
+            android:hint="Дамашнее задание"
             android:text="" />
 
         <Button

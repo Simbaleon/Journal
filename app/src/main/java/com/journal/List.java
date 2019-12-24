@@ -74,7 +74,7 @@ public class List extends AppCompatActivity implements View.OnClickListener {
             Context style_dz = new ContextThemeWrapper(findViewById(hashMap.get(d)).getContext(), hashMap.get(d + 5));
             for (int i = 0; i < array.length; i++) {
                 array[0] = "Математика:7";
-                array[1] = "Русский_язык:45;";
+                array[1] = "Русский язык:45;";
                 String[] a = array[i].split(";");
                 for (int j = 0; j < a.length; j++) {
                     String[] b = a[j].split(":");
