@@ -1,7 +1,5 @@
 package com.journal;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,19 +7,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
 
-public class Math extends AppCompatActivity {
+
+public class ForStudent extends AppCompatActivity {
 
     TextView Klas;
-    EditText Dz;
+    TextView Dz;
     Button Upg;
     String[] dz;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.math);
+        setContentView(R.layout.for_student);
         Klas = (TextView) findViewById(R.id.klas);
-        Dz = (EditText) findViewById(R.id.Dz);
+        Dz = (TextView) findViewById(R.id.Dz);
         Upg = (Button)findViewById(R.id.Btn);
         Intent intent = getIntent();
         dz = intent.getStringArrayExtra("teacher");
@@ -34,20 +34,13 @@ public class Math extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            String newDz = Dz.getText().toString();
-
-            Intent iMath = new Intent(Math.this, List.class);
-            iMath.putExtra("dz", newDz);
-            setResult(1, iMath);
+            Intent iMath = new Intent(ForStudent.this, Student.class);
             finish();
         }
     };
     @Override
     public void onBackPressed(){
-        String newDz = Dz.getText().toString();
-        Intent iMath = new Intent(Math.this, List.class);
-        iMath.putExtra("dz", newDz);
-        setResult(1, iMath);
+        Intent iMath = new Intent(ForStudent.this, Student.class);
         finish();
     }
 

@@ -1,6 +1,5 @@
 package com.journal;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -15,7 +14,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.nio.FloatBuffer;
 import java.util.HashMap;
 
 public class List extends AppCompatActivity implements View.OnClickListener {
@@ -137,7 +135,7 @@ public class List extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(this, Math.class);
+        Intent intent = new Intent(this, ForTeacher.class);
         String[] a = new String[2];
         a[0] = ((Button) v).getText().toString();
         a[1] = "Дз";

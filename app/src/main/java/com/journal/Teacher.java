@@ -110,7 +110,7 @@ public class Teacher extends AppCompatActivity {
                                     Toast.LENGTH_SHORT
                             ).show();
                             is_newdz = true;
-                            Intent intent = new Intent(Teacher.this, Math.class);
+                            Intent intent = new Intent(Teacher.this, ForTeacher.class);
                             String[] a = new String[2];
                             a[0] = ((Button) v).getText().toString();
                             a[1] = textView[pr].getText().toString();
@@ -149,14 +149,6 @@ public class Teacher extends AppCompatActivity {
         }
     }
 
-//    public void onClick(View v) {
-//        Intent intent = new Intent(this, Math.class);
-//        String[] a = new String[2];
-//        a[0] = ((Button) v).getText().toString();
-//        a[1] = "Дз";
-//        intent.putExtra("teacher", a);
-//        startActivity(intent);
-//    }
 }
 
 

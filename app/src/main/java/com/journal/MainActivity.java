@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         {
                             if (!T2 && !T3 && !T4 && T1){
                                 if ((login.getText().toString().equals(login_txt)) && (pass.getText().toString().equals(pass_txt))) {
-                                    Intent intent = new Intent(MainActivity.this, List.class);
+                                    Intent intent = new Intent(MainActivity.this, Student.class);
                                     startActivity(intent);
 
                                 } else Toast.makeText(
@@ -86,9 +86,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 enter4.setBackgroundResource(R.drawable.botton);
                                 enter1.setBackgroundResource(R.drawable.enter);
                                 T1 = true; T2 = false; T3 = false; T4 = false;
+                                Toast.makeText(
+                                        MainActivity.this, "Подтверидте вход как ученик",
+                                        Toast.LENGTH_SHORT
+                                ).show();
                             }else if (!T2 && !T3 && !T4 && !T1){
                                 enter1.setBackgroundResource(R.drawable.enter);
                                 T1 = true;
+                                Toast.makeText(
+                                        MainActivity.this, "Подтверидте вход как ученик",
+                                        Toast.LENGTH_SHORT
+                                ).show();
                             }
                         }
                     }
@@ -120,10 +128,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                                    } catch (JSONException e) {
 //                                        e.printStackTrace();
 //                                    }
-                                    Toast.makeText(
-                                            MainActivity.this, "Ошибка",
-                                            Toast.LENGTH_SHORT
-                                    ).show();
+
                                     if ((login.getText().toString().equals(login_txt)) && (pass.getText().toString().equals(pass_txt))) {
                                         Intent intent = new Intent(MainActivity.this, Teacher.class);
                                         startActivity(intent);
@@ -137,9 +142,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     enter4.setBackgroundResource(R.drawable.botton);
                                     enter2.setBackgroundResource(R.drawable.enter);
                                     T2 = true; T1 = false; T3 = false; T4 = false;
+                                    Toast.makeText(
+                                            MainActivity.this, "Подтверидте вход как учитель",
+                                            Toast.LENGTH_SHORT
+                                    ).show();
                                 }else if (!T2 && !T3 && !T4 && !T1){
                                     enter2.setBackgroundResource(R.drawable.enter);
                                     T2 = true;
+                                    Toast.makeText(
+                                            MainActivity.this, "Подтверидте вход как учитель",
+                                            Toast.LENGTH_SHORT
+                                    ).show();
                                 }
                             }
                         }
@@ -164,9 +177,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     enter4.setBackgroundResource(R.drawable.botton);
                                     enter3.setBackgroundResource(R.drawable.enter);
                                     T3 = true; T1 = false; T2 = false; T4 = false;
+                                    Toast.makeText(
+                                            MainActivity.this, "Подтверидте вход как родитель",
+                                            Toast.LENGTH_SHORT
+                                    ).show();
                                 }else if (!T2 && !T3 && !T4 && !T1){
                                     enter3.setBackgroundResource(R.drawable.enter);
                                     T3 = true;
+                                    Toast.makeText(
+                                            MainActivity.this, "Подтверидте вход как родитель",
+                                            Toast.LENGTH_SHORT
+                                    ).show();
                                 }
                             }
                         }
@@ -191,9 +212,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     enter3.setBackgroundResource(R.drawable.botton);
                                     enter4.setBackgroundResource(R.drawable.enter);
                                     T4 = true; T1 = false; T2 = false; T3 = false;
+                                    Toast.makeText(
+                                            MainActivity.this, "Подтверидте вход как директор",
+                                            Toast.LENGTH_SHORT
+                                    ).show();
                                 }else if (!T2 && !T3 && !T4 && !T1){
                                     enter4.setBackgroundResource(R.drawable.enter);
                                     T4 = true;
+                                    Toast.makeText(
+                                            MainActivity.this, "Подтверидте вход как директор",
+                                            Toast.LENGTH_SHORT
+                                    ).show();
                                 }
                             }
                         }

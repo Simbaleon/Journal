@@ -4,12 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextThemeWrapper;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,18 +24,25 @@ public class Student extends AppCompatActivity {
     public TextView[] textView;
     public static String Dz;
     String[] array;
+    private final int USERID = 7000;
+    private int countID, pr;
     HashMap<Integer, Integer> hashMap = new HashMap<>();
     LinearLayout.LayoutParams forLessons = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
     LinearLayout.LayoutParams forDz = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
 
-    public Student(String name, String surname, String id, String login, String pass, String position,
+    public void student(String name, String surname, String id, String login, String pass, String position,
                    String clas) {
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Toast.makeText(
+                Student.this, "В onCreate",
+                Toast.LENGTH_SHORT
+        ).show();
         setContentView(R.layout.week);
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -61,36 +70,67 @@ public class Student extends AppCompatActivity {
         hashMap.put(13, R.style.Wednesday);
         hashMap.put(14, R.style.Thursday);
         hashMap.put(15, R.style.Friday);
+        hashMap.put(16, R.drawable.monday);
+        hashMap.put(17, R.drawable.tuesday);
+        hashMap.put(18, R.drawable.wednesday);
+        hashMap.put(19, R.drawable.thursday);
+        hashMap.put(20, R.drawable.friday);
 
         Intent intent = getIntent();
 
-
+        btns = new Button[40];
         textView = new TextView[40];
         int nowText = 0;
         array = new String[2];
         for (int d = 1; d < 6; d++) {
+            array[0] = "Математика:7";
+            array[1] = "Русский язык:45;";
             Context style_less = new ContextThemeWrapper(findViewById(hashMap.get(d)).getContext(), hashMap.get(d + 10));
             Context style_dz = new ContextThemeWrapper(findViewById(hashMap.get(d)).getContext(), hashMap.get(d + 5));
             for (int i = 0; i < array.length; i++) {
-                array[0] = "Математика:7";
-                array[1] = "Русский язык:45;";
                 String[] a = array[i].split(";");
                 for (int j = 0; j < a.length; j++) {
                     String[] b = a[j].split(":");
-                    textView[nowText] = new TextView(style_less);
-                    textView[nowText].setText("1 " + b[0]);
+                    btns[nowText] = new Button(style_less);
+                    btns[nowText].setBackgroundResource(hashMap.get(d + 15));
+                    btns[nowText].setId(USERID + countID);
+                    btns[nowText].setText(b[0]);
                     LinearLayout list_lessons = findViewById(hashMap.get(d));
-                    list_lessons.addView(textView[nowText], forLessons);
+                    list_lessons.addView(btns[nowText], forLessons);
+                    final int finalNowText = nowText;
+                    btns[nowText].setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            pr = finalNowText;
+                            Toast.makeText(
+                                    Student.this, "В onClicke " + pr,
+                                    Toast.LENGTH_SHORT
+                            ).show();
+                            Intent intent = new Intent(Student.this, ForStudent.class);
+                            String[] a = new String[2];
+                            a[0] = ((Button) v).getText().toString();
+                            a[1] = textView[pr].getText().toString();
+                            intent.putExtra("teacher", a);
+                            startActivity(intent);
+                        }
+                    });
+                        countID++;
+                        textView[nowText] = new TextView(style_dz);
+                        textView[nowText].setText(b[1]);
+                        LinearLayout list_dz = findViewById(hashMap.get(d));
+                        list_dz.addView(textView[nowText], forDz);
+                        nowText++;
 
-                    textView[nowText] = new TextView(style_dz);
-                    textView[nowText].setText("2 " + b[1]);
-                    LinearLayout list_dz = findViewById(hashMap.get(d));
-                    list_dz.addView(textView[nowText], forDz);
-                    nowText++;
                 }
             }
         }
     }
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        textView[pr].setText(data.getStringExtra("dz"));
+    }
+
+
+
     @Override
     public void onBackPressed() {
         try {
@@ -101,4 +141,8 @@ public class Student extends AppCompatActivity {
 
         }
     }
+
+
 }
+
+
