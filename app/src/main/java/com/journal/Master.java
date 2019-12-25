@@ -31,7 +31,7 @@ public class Master extends AppCompatActivity {
     private int countID, pr;
     TextView Klas;
     TextView Dz;
-    Button Upg;
+    Button Upg, Reg;
     HashMap<Integer, Integer> hashMap = new HashMap<>();
     LinearLayout.LayoutParams forLessons = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
     LinearLayout.LayoutParams forDz = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -44,8 +44,9 @@ public class Master extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.week);
+        setContentView(R.layout.week_for_master);
         mon = findViewById(R.id.mon);
+        Reg = (Button)findViewById(R.id.reg);
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -91,6 +92,12 @@ public class Master extends AppCompatActivity {
         Rasp();
     }
     public void Rasp(){
+        Reg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Master.this, ForMaster.class);
+                startActivity(intent);
+            }});
         int nowText = 0;
         for (int d = 1; d < 6; d++) {
             Context style_less = new ContextThemeWrapper(findViewById(hashMap.get(d)).getContext(), hashMap.get(d + 10));
