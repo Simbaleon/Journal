@@ -23,10 +23,13 @@ public class Parent extends AppCompatActivity {
     int id_child;
     public Button[] btns;
     public TextView[] textView;
-    public static String Dz;
+    public static String dz;
     String[] array;
     private final int USERID = 7000;
     private int countID, pr;
+    TextView Klas;
+    TextView Dz;
+    Button Upg;
     HashMap<Integer, Integer> hashMap = new HashMap<>();
     LinearLayout.LayoutParams forLessons = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
     LinearLayout.LayoutParams forDz = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -74,7 +77,6 @@ public class Parent extends AppCompatActivity {
         hashMap.put(20, R.drawable.friday);
 
         Intent intent = getIntent();
-
         btns = new Button[40];
         textView = new TextView[40];
         int nowText = 0;
@@ -84,6 +86,11 @@ public class Parent extends AppCompatActivity {
         array[2] = "Физика:5;Математика:7;Русский язык:45;География:16;Литература:58;";
         array[3] = "География:16;Физика:5;Литература:Прочитать 'Евгений Онегин' и 'Мастер и Маргарита' ууурааа;Математика:7;Русский язык:45";
         array[4] = "Математика:7;Русский язык:45;География:16;Физика:5;Литература:58;";
+        Rasp();
+
+    }
+    public void Rasp() {
+        int nowText = 0;
         for (int d = 1; d < 6; d++) {
             Context style_less = new ContextThemeWrapper(findViewById(hashMap.get(d)).getContext(), hashMap.get(d + 10));
             Context style_dz = new ContextThemeWrapper(findViewById(hashMap.get(d)).getContext(), hashMap.get(d + 5));
@@ -105,12 +112,24 @@ public class Parent extends AppCompatActivity {
                                 Parent.this, "В onClicke " + pr,
                                 Toast.LENGTH_SHORT
                         ).show();
-                        Intent intent = new Intent(Parent.this, ForStudent.class);
                         String[] a = new String[2];
                         a[0] = ((Button) v).getText().toString();
                         a[1] = textView[pr].getText().toString();
-                        intent.putExtra("parent", a);
-                        startActivity(intent);
+
+                        setContentView(R.layout.for_student);
+                        Klas = (TextView) findViewById(R.id.klas);
+                        Dz = (TextView) findViewById(R.id.Dz);
+                        Upg = (Button) findViewById(R.id.Btn);
+                        Klas.setText(a[0]);
+                        Dz.setText(a[1]);
+                        Upg.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                setContentView(R.layout.week);
+                                Rasp();
+                            }
+                        });
+
                     }
                 });
                 countID++;
@@ -122,13 +141,7 @@ public class Parent extends AppCompatActivity {
 
             }
         }
-
     }
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        textView[pr].setText(data.getStringExtra("dz"));
-    }
-
 
     @Override
     public void onBackPressed() {
