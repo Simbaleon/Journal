@@ -27,14 +27,16 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/reg"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:background="@drawable/botton"
                 android:gravity="center"
-                android:textSize="24dp"
+                android:textSize="23dp"
                 android:textColor="#cfcaca"
-                android:text="Регистрация" />
+                android:paddingRight="4dp"
+                android:paddingLeft="4dp"
+                android:text="Регистрация нового учителя" />
 
         </LinearLayout>
 
@@ -46,38 +48,45 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/t1"
                 style="@style/ForRegistr"
                 android:layout_marginTop="8dp"
-                android:inputType="textPersonName"
-                android:hint="Фамилия" />
-
-            <EditText
-                android:id="@+id/editText3"
-                style="@style/ForRegistr"
-                android:inputType="textPersonName"
-                android:hint="Имя" />
-
-            <EditText
-                android:id="@+id/editText4"
-                style="@style/ForRegistr"
                 android:inputType="textPersonName"
                 android:hint="Логин" />
 
             <EditText
-                android:id="@+id/editText5"
+                android:id="@+id/t2"
                 style="@style/ForRegistr"
                 android:inputType="textPersonName"
                 android:hint="Пароль" />
 
             <EditText
-                android:id="@+id/editText6"
+                android:id="@+id/t3"
                 style="@style/ForRegistr"
-                android:inputType="number"
-                android:hint="Возраст" />
+                android:inputType="textPersonName"
+                android:hint="Фамилия" />
 
             <EditText
-                android:id="@+id/editText7"
+                android:id="@+id/t4"
+                style="@style/ForRegistr"
+                android:inputType="textPersonName"
+                android:hint="Имя" />
+
+            <EditText
+                android:id="@+id/t5"
+                style="@style/ForRegistr"
+                android:inputType="textPersonName"
+                android:hint="Email" />
+
+            <EditText
+                android:id="@+id/t6"
+                style="@style/ForRegistr"
+                android:inputType="textPersonName"
+                android:hint="Телефон" />
+
+
+            <EditText
+                android:id="@+id/t7"
                 style="@style/ForRegistr"
                 android:inputType="textPersonName"
                 android:hint="Специальность" />

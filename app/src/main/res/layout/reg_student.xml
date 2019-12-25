@@ -76,7 +76,7 @@
                 android:id="@+id/t5"
                 style="@style/ForRegistr"
                 android:inputType="textPersonName"
-                android:hint="Id ребенка" />
+                android:hint="Класс" />
 
             <Button
                 android:id="@+id/button"

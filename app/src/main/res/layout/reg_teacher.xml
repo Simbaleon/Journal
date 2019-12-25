@@ -36,7 +36,7 @@
                 android:textColor="#cfcaca"
                 android:paddingRight="4dp"
                 android:paddingLeft="4dp"
-                android:text="Регистрация нового ученика" />
+                android:text="Регистрация нового учителя" />
 
         </LinearLayout>
 
@@ -52,31 +52,37 @@
                 style="@style/ForRegistr"
                 android:layout_marginTop="8dp"
                 android:inputType="textPersonName"
-                android:hint="Логин" />
+                android:hint="Фамилия" />
 
             <EditText
                 android:id="@+id/t2"
                 style="@style/ForRegistr"
                 android:inputType="textPersonName"
-                android:hint="Пароль" />
+                android:hint="Имя" />
 
             <EditText
                 android:id="@+id/t3"
                 style="@style/ForRegistr"
                 android:inputType="textPersonName"
-                android:hint="Фамилия" />
+                android:hint="Логин" />
 
             <EditText
                 android:id="@+id/t4"
                 style="@style/ForRegistr"
                 android:inputType="textPersonName"
-                android:hint="Имя" />
+                android:hint="Пароль" />
 
             <EditText
                 android:id="@+id/t5"
                 style="@style/ForRegistr"
+                android:inputType="number"
+                android:hint="Возраст" />
+
+            <EditText
+                android:id="@+id/t6"
+                style="@style/ForRegistr"
                 android:inputType="textPersonName"
-                android:hint="Id ребенка" />
+                android:hint="Специальность" />
 
             <Button
                 android:id="@+id/button"
