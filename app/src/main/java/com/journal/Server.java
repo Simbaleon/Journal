@@ -8,7 +8,7 @@ import retrofit2.http.POST;
 
 public interface Server {
 
-@GET("myPerson")
+@GET("checkPerson")
     Call<JSONObject> checkFromServer(String login, String password);
 
 @GET("getRasp")
