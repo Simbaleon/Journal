@@ -57,16 +57,55 @@ public class MainActivity extends AppCompatActivity {
         if (T4) enter4.setBackgroundResource(R.drawable.enter);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("file://desktop-545kfou/OpenServer/OSPanel/domains/hui-o4ko.ru/database.sqlite/")
+                .baseUrl("http://desktop-545kfou/OpenServer/OSPanel/domains/hui-o4ko.ru/database.sqlite/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         Server server = retrofit.create(Server.class);
 
     }
 
-public void getJsonObject() throws IOException, JSONException{
-        jsonObject = new JSONObject(a);
-}
+//    public int checkJson() throws JSONException {
+//        return jsonObject.getInt("resultCode");
+//    }
+//
+//    public void getJsonObject() throws IOException, JSONException {
+//        Response<JSONObject> jsonObject = jsonObjectCall.execute();
+//    }
+//
+//    public Teacher startTeacher() throws JSONException {
+//        int id = jsonObject.getInt("id");
+//        String name = jsonObject.getString("name");
+//        String surname = jsonObject.getString("surname");
+//        String email = jsonObject.getString("email");
+//        String phone = jsonObject.getString("phone");
+//        String qualification = jsonObject.getString("qualification");
+//        boolean is_admin = jsonObject.getBoolean("is_admin");
+//        Integer permit = jsonObject.getInt("permit");
+//
+//        Teacher teacher = new Teacher(id, name, surname, email, phone, qualification, is_admin, permit);
+//        return teacher;
+//    }
+//
+//    public Student startStudent() throws JSONException {
+//        int id = jsonObject.getInt("id");
+//        String name = jsonObject.getString("name");
+//        String surname = jsonObject.getString("surname");
+//        String clas = jsonObject.getString("clas");
+//        Integer permit = jsonObject.getInt("permit");
+//
+//        Student student = new Student(id, name, surname, clas, permit);
+//        return student;
+//
+//    }
+//    public Parent startParent() throws JSONException {
+//        int id = jsonObject.getInt("id");
+//        String name = jsonObject.getString("name");
+//        String surname = jsonObject.getString("surname");
+//        Integer child_id = jsonObject.getInt("child_id");
+//        Parent parent = new Parent(id, name, surname, child_id);
+//        return parent;
+//
+//    }
 
 
     public void addListenerOnButton() {
@@ -78,6 +117,7 @@ public void getJsonObject() throws IOException, JSONException{
                     @Override
                     public void onClick(View v) {
                         {
+
                             if (!T2 && !T3 && !T4 && T1) {
                                 Intent intent = new Intent(MainActivity.this, Student.class);
                                 startActivity(intent);

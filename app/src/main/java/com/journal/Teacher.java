@@ -3,6 +3,8 @@ package com.journal;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.view.Window;
@@ -18,10 +20,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.HashMap;
 
 public class Teacher extends AppCompatActivity {
+//        implements Parcelable {
 
     String email, phone, qualification;
     boolean is_admin, is_newdz = false;
     public Button[] btns;
+    boolean la = false;
+    public int id, permit;
+    public String name, surname, login, pass, position;
     public TextView[] textView;
     public TextView mon;
     public EditText[] editText;
@@ -36,10 +42,44 @@ public class Teacher extends AppCompatActivity {
     LinearLayout.LayoutParams forLessons = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
     LinearLayout.LayoutParams forDz = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
-//   Teacher(String name, String surname, String id, String login, String pass, String position,
-//                        String email, String phone, String qualification, boolean is_admin) {
+//   Teacher(int id, String name, String surname, String login, String pass, String position,
+//           boolean is_admin, int permit) {
+//       this.id = id;
+//       this.name = name;
+//       this.surname = surname;
+//       this.login = login;
+//       this.pass = pass;
+//       this.position = position;
+//       this.email = email;
+//       this.phone = phone;
+//       this.qualification = qualification;
+//       this.is_admin = is_admin;
+//       this.permit = permit;
 //    }
 
+
+//    protected Teacher(Parcel in) {
+//        email = in.readString();
+//        phone = in.readString();
+//        qualification = in.readString();
+//        is_admin = in.readByte() != 0;
+//        is_newdz = in.readByte() != 0;
+//        array = in.createStringArray();
+//        countID = in.readInt();
+//        pr = in.readInt();
+//    }
+//
+//    public static final Creator<Teacher> CREATOR = new Creator<Teacher>() {
+//        @Override
+//        public Teacher createFromParcel(Parcel in) {
+//            return new Teacher(in);
+//        }
+//
+//        @Override
+//        public Teacher[] newArray(int size) {
+//            return new Teacher[size];
+//        }
+//    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,6 +160,7 @@ public class Teacher extends AppCompatActivity {
 
                         setContentView(R.layout.for_teacher);
                         Klas = (TextView) findViewById(R.id.klas);
+                        la = true;
                         Dz = (TextView) findViewById(R.id.Dz);
                         Upg = (Button) findViewById(R.id.Btn);
                         Klas.setText(a[0]);
@@ -129,6 +170,7 @@ public class Teacher extends AppCompatActivity {
                             public void onClick(View v) {
                                 newDz = Dz.getText().toString();
                                 setContentView(R.layout.week_for_teacher);
+                                la = false;
                                 textView[pr].setText(newDz);
                                 is_newdz = true;
                                 Rasp();
@@ -160,14 +202,40 @@ public class Teacher extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        try {
-            Intent intent = new Intent(Teacher.this, MainActivity.class);
-            startActivity(intent);
-            finish();
-        } catch (Exception e) {
+        if (la) {
+            newDz = Dz.getText().toString();
+            setContentView(R.layout.week_for_teacher);
+            la = false;
+            textView[pr].setText(newDz);
+            is_newdz = true;
+            Rasp();
+        } else {
+            try {
+                Intent intent = new Intent(Teacher.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            } catch (Exception e) {
 
+            }
         }
     }
 
+//    @Override
+//    public int describeContents() {
+//        return 0;
+//    }
+//
+//    @Override
+//    public void writeToParcel(Parcel dest, int flags) {
+//        dest.writeString(email);
+//        dest.writeString(phone);
+//        dest.writeString(qualification);
+//        dest.writeByte((byte) (is_admin ? 1 : 0));
+//        dest.writeByte((byte) (is_newdz ? 1 : 0));
+//        dest.writeStringArray(array);
+//        dest.writeInt(USERID);
+//        dest.writeInt(countID);
+//        dest.writeInt(pr);
+//    }
 }
 

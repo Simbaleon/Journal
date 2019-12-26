@@ -36,7 +36,7 @@
                 android:textColor="#cfcaca"
                 android:paddingRight="4dp"
                 android:paddingLeft="4dp"
-                android:text="Регистрация нового учителя" />
+                android:text="Регистрация нового родителя" />
 
         </LinearLayout>
 

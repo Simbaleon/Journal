@@ -29,11 +29,13 @@ import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Student extends AppCompatActivity implements Parcelable {
+public class Student extends AppCompatActivity {
+//        implements Parcelable {
 
-    int id, id_child;
-    public String name, surname, a;
+    int id, permit;
+    public String name, surname, a, clas;
     public Button[] btns;
+    boolean la = false;
     public TextView[] textView;
     public static String dz;
     String[] array;
@@ -51,37 +53,38 @@ public class Student extends AppCompatActivity implements Parcelable {
     LinearLayout.LayoutParams forLessons = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
     LinearLayout.LayoutParams forDz = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
-    Student(int id, String name, String surname, int id_child){
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.id_child = id_child;
-    }
+//    Student(int id, String name, String surname, String clas, int permit){
+//        this.id = id;
+//        this.name = name;
+//        this.surname = surname;
+//        this.clas = clas;
+//        this.permit = permit;
+//    }
+//    Student(){};
+//
+//
+//    protected Student(Parcel in) {
+//        id = in.readInt();
+//        name = in.readString();
+//        surname = in.readString();
+//        array = in.createStringArray();
+//        USERID = in.readInt();
+//        countID = in.readInt();
+//        pr = in.readInt();
+//    }
 
 
-    protected Student(Parcel in) {
-        id = in.readInt();
-        id_child = in.readInt();
-        name = in.readString();
-        surname = in.readString();
-        array = in.createStringArray();
-        USERID = in.readInt();
-        countID = in.readInt();
-        pr = in.readInt();
-    }
-
-
-    public static final Creator<Student> CREATOR = new Creator<Student>() {
-        @Override
-        public Student createFromParcel(Parcel in) {
-            return new Student(in);
-        }
-
-        @Override
-        public Student[] newArray(int size) {
-            return new Student[size];
-        }
-    };
+//    public static final Creator<Student> CREATOR = new Creator<Student>() {
+//        @Override
+//        public Student createFromParcel(Parcel in) {
+//            return new Student(in);
+//        }
+//
+//        @Override
+//        public Student[] newArray(int size) {
+//            return new Student[size];
+//        }
+//    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -198,6 +201,7 @@ public class Student extends AppCompatActivity implements Parcelable {
                         a[1] = textView[pr].getText().toString();
 
                         setContentView(R.layout.for_student);
+                        la = true;
                         Klas = (TextView) findViewById(R.id.klas);
                         Dz = (TextView) findViewById(R.id.Dz);
                         Upg = (Button) findViewById(R.id.Btn);
@@ -207,6 +211,7 @@ public class Student extends AppCompatActivity implements Parcelable {
                             @Override
                             public void onClick(View v) {
                                 setContentView(R.layout.week);
+                                la = false;
                                 mar = findViewById(R.id.mar);
                                 try {
 
@@ -242,32 +247,43 @@ public class Student extends AppCompatActivity implements Parcelable {
     }
     @Override
     public void onBackPressed() {
-        try {
-            Intent intent = new Intent(Student.this, MainActivity.class);
-            startActivity(intent);
-            finish();
-        } catch (Exception e) {
+        if (la){
+            setContentView(R.layout.week);
+            la = false;
+            mar = findViewById(R.id.mar);
+            try {
 
+                Rasp();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }else {
+            try {
+                Intent intent = new Intent(Student.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            } catch (Exception e) {
+
+            }
         }
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(id);
-        dest.writeInt(id_child);
-        dest.writeString(name);
-        dest.writeString(surname);
-        dest.writeString(a);
-        dest.writeStringArray(array);
-        dest.writeInt(USERID);
-        dest.writeInt(countID);
-        dest.writeInt(pr);
-    }
+//    @Override
+//    public int describeContents() {
+//        return 0;
+//    }
+//
+//    @Override
+//    public void writeToParcel(Parcel dest, int flags) {
+//        dest.writeInt(id);
+//        dest.writeString(name);
+//        dest.writeString(surname);
+//        dest.writeString(a);
+//        dest.writeStringArray(array);
+//        dest.writeInt(USERID);
+//        dest.writeInt(countID);
+//        dest.writeInt(pr);
+//    }
 }
 
 

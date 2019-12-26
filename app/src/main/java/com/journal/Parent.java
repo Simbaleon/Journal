@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.HashMap;
 
 public class Parent extends AppCompatActivity  {
+//        mplements Parcelable {
 
     int id, id_child;
     String name, surname;
@@ -35,8 +36,8 @@ public class Parent extends AppCompatActivity  {
     HashMap<Integer, Integer> hashMap = new HashMap<>();
     LinearLayout.LayoutParams forLessons = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
     LinearLayout.LayoutParams forDz = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-
-//    Student(int id, String name, String surname, int id_child){
+//
+//    Parent(int id, String name, String surname, int id_child){
 //        this.id = id;
 //        this.name = name;
 //        this.surname = surname;
@@ -56,6 +57,28 @@ public class Parent extends AppCompatActivity  {
 //    }
 
 
+//    protected Parent(Parcel in) {
+//        id = in.readInt();
+//        id_child = in.readInt();
+//        name = in.readString();
+//        surname = in.readString();
+//        array = in.createStringArray();
+//        USERID = in.readInt();
+//        countID = in.readInt();
+//        pr = in.readInt();
+//    }
+
+//    public static final Creator<Parent> CREATOR = new Creator<Parent>() {
+//        @Override
+//        public Parent createFromParcel(Parcel in) {
+//            return new Parent(in);
+//        }
+//
+//        @Override
+//        public Parent[] newArray(int size) {
+//            return new Parent[size];
+//        }
+//    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -171,6 +194,22 @@ public class Parent extends AppCompatActivity  {
         }
     }
 
+//    @Override
+//    public int describeContents() {
+//        return 0;
+//    }
+//
+//    @Override
+//    public void writeToParcel(Parcel dest, int flags) {
+//        dest.writeInt(id);
+//        dest.writeInt(id_child);
+//        dest.writeString(name);
+//        dest.writeString(surname);
+//        dest.writeStringArray(array);
+//        dest.writeInt(USERID);
+//        dest.writeInt(countID);
+//        dest.writeInt(pr);
+//    }
 }
 
 
