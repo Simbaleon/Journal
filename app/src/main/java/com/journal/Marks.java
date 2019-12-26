@@ -147,7 +147,7 @@ public class Marks extends AppCompatActivity implements View.OnClickListener {
 //считаем оценки
             TextView textView = new TextView(this);
             textView.setTextColor(Color.parseColor("#000002"));
-            textView.setText("Кабинет");
+            textView.setText("");
             tableRow.addView(textViews[i], layoutParamsPred);
             tableRow.addView(button, layoutParamsBtn);
             tableRow.addView(textView, layoutParamsOc);

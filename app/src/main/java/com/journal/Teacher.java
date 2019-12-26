@@ -31,7 +31,7 @@ public class Teacher extends AppCompatActivity {
     public TextView[] textView;
     public TextView mon;
     public EditText[] editText;
-    public static String dz, Pr, newDz;
+    public static String dz, newDz;
     String[] array;
     private final int USERID = 6000;
     private int countID, pr;
@@ -133,6 +133,7 @@ public class Teacher extends AppCompatActivity {
     public void Rasp(){
 
         int nowText = 0;
+
         for (int d = 1; d < 6; d++) {
             Context style_less = new ContextThemeWrapper(findViewById(hashMap.get(d)).getContext(), hashMap.get(d + 10));
             Context style_dz = new ContextThemeWrapper(findViewById(hashMap.get(d)).getContext(), hashMap.get(d + 5));
@@ -150,10 +151,6 @@ public class Teacher extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         pr = finalNowText;
-                        Toast.makeText(
-                                Teacher.this, "В onClicke " + pr,
-                                Toast.LENGTH_SHORT
-                        ).show();
                         String[] a = new String[2];
                         a[0] = ((Button) v).getText().toString();
                         a[1] = textView[pr].getText().toString();
@@ -171,9 +168,12 @@ public class Teacher extends AppCompatActivity {
                                 newDz = Dz.getText().toString();
                                 setContentView(R.layout.week_for_teacher);
                                 la = false;
-                                textView[pr].setText(newDz);
+                                int PR = pr;
                                 is_newdz = true;
                                 Rasp();
+                                textView[PR].setText(newDz);
+
+
                             }
                         });
 
@@ -181,12 +181,12 @@ public class Teacher extends AppCompatActivity {
                 });
                 countID++;
                 if(is_newdz){
-                    textView[nowText] = new TextView(style_dz);
-                    textView[nowText].setText(newDz);
+                    textView[pr] = new TextView(style_dz);
+                    textView[pr].setText(newDz);
                     LinearLayout list_dz = findViewById(hashMap.get(d));
-                    list_dz.addView(textView[nowText], forDz);
+                    list_dz.addView(textView[pr], forDz);
                     nowText++;
-                    is_newdz = false;
+                   is_newdz = false;
                 }else {
                     textView[nowText] = new TextView(style_dz);
                     textView[nowText].setText(b[1]);

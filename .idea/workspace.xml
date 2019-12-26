@@ -39,16 +39,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/journal/Student.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1598">
-              <caret line="94" column="6669" selection-start-line="94" selection-start-column="6669" selection-end-line="94" selection-end-column="6669" />
+            <state relative-caret-position="-1615">
+              <caret line="106" column="107" selection-start-line="106" selection-start-column="107" selection-end-line="106" selection-end-column="107" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#12174#12398#0" expanded="true" />
-                <element signature="e#12397#12398#0" expanded="true" />
-                <element signature="e#13343#14920#0" expanded="true" />
-                <element signature="e#14294#14877#0" expanded="true" />
-                <element signature="e#14876#14877#0" expanded="true" />
-                <element signature="e#14919#14920#0" expanded="true" />
+                <element signature="e#12117#12341#0" expanded="true" />
+                <element signature="e#12340#12341#0" expanded="true" />
+                <element signature="e#13286#14863#0" expanded="true" />
+                <element signature="e#14237#14820#0" expanded="true" />
+                <element signature="e#14819#14820#0" expanded="true" />
+                <element signature="e#14862#14863#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -57,27 +57,27 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/journal/Teacher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="171" column="32" selection-start-line="171" selection-start-column="32" selection-end-line="171" selection-end-column="32" />
+            <state relative-caret-position="-65">
+              <caret line="129" column="35" selection-start-line="129" selection-start-column="35" selection-end-line="129" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5310#6739#0" expanded="true" />
-                <element signature="e#6226#6696#0" expanded="true" />
-                <element signature="e#6695#6696#0" expanded="true" />
-                <element signature="e#6738#6739#0" expanded="true" />
+                <element signature="e#6338#7846#0" expanded="true" />
+                <element signature="e#7289#7803#0" expanded="true" />
+                <element signature="e#7802#7803#0" expanded="true" />
+                <element signature="e#7845#7846#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/journal/Master.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/journal/ForTeacher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="93" column="58" lean-forward="true" selection-start-line="93" selection-start-column="58" selection-end-line="93" selection-end-column="58" />
+            <state relative-caret-position="51">
+              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3546#3547#0" expanded="true" />
+                <marker date="1577215255075" expanded="true" signature="307:1477" ph="..." />
               </folding>
             </state>
           </provider>
@@ -86,18 +86,30 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/journal/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="80" column="71" lean-forward="true" selection-start-line="80" selection-start-column="71" selection-end-line="80" selection-end-column="71" />
+            <state relative-caret-position="170">
+              <caret line="109" selection-start-line="109" selection-end-line="109" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2477#4399#0" expanded="true" />
-                <element signature="e#4398#4399#0" expanded="true" />
-                <element signature="e#4462#6387#0" expanded="true" />
-                <element signature="e#6386#6387#0" expanded="true" />
-                <element signature="e#6450#8375#0" expanded="true" />
-                <element signature="e#8374#8375#0" expanded="true" />
-                <element signature="e#8438#10363#0" expanded="true" />
-                <element signature="e#10362#10363#0" expanded="true" />
+                <element signature="e#4123#6046#0" expanded="true" />
+                <element signature="e#6045#6046#0" expanded="true" />
+                <element signature="e#6109#8034#0" expanded="true" />
+                <element signature="e#8033#8034#0" expanded="true" />
+                <element signature="e#8097#10022#0" expanded="true" />
+                <element signature="e#10021#10022#0" expanded="true" />
+                <element signature="e#10085#12010#0" expanded="true" />
+                <element signature="e#12009#12010#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/journal/Marks.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="938">
+              <caret line="154" column="16" lean-forward="true" selection-start-line="154" selection-start-column="16" selection-end-line="154" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -115,11 +127,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/journal/Parent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-133">
-              <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="1201">
+              <caret line="88" selection-start-line="88" selection-end-line="88" />
             </state>
           </provider>
         </entry>
@@ -129,40 +138,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
               <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/journal/Reg_Parent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/reg_parent.xml">
-          <provider editor-type-id="android-designer2" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="38" column="57" selection-start-line="38" selection-start-column="57" selection-end-line="38" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/journal/Marks.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="146" column="16" selection-start-line="146" selection-start-column="16" selection-end-line="146" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -237,13 +212,13 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/journal/Master.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/journal/Reg_Parent.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/journal/Marks.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/journal/Server.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/journal/Parent.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/journal/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/reg_parent.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/journal/Student.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/journal/Marks.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/journal/Teacher.java" />
       </list>
     </option>
@@ -321,14 +296,14 @@
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Samsung\GitHub\Journal\app\src\main\res\layout" />
       <recent name="C:\Samsung\GitHub\Journal\app\src\main\res\drawable-v24" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.journal" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Samsung\GitHub\Journal\app\src\main\res\layout" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Samsung\GitHub\Journal\app\src\main\res\drawable-v24" />
     </key>
   </component>
@@ -566,17 +541,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/journal/ForTeacher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1577215255075" expanded="true" signature="307:1477" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/journal/List.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -729,16 +693,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/journal/Marks.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="146" column="16" selection-start-line="146" selection-start-column="16" selection-end-line="146" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/journal/Server.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -751,11 +705,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/journal/Parent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-133">
-          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="1201">
+          <caret line="88" selection-start-line="88" selection-end-line="88" />
         </state>
       </provider>
     </entry>
@@ -784,40 +735,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/journal/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="80" column="71" lean-forward="true" selection-start-line="80" selection-start-column="71" selection-end-line="80" selection-end-column="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2477#4399#0" expanded="true" />
-            <element signature="e#4398#4399#0" expanded="true" />
-            <element signature="e#4462#6387#0" expanded="true" />
-            <element signature="e#6386#6387#0" expanded="true" />
-            <element signature="e#6450#8375#0" expanded="true" />
-            <element signature="e#8374#8375#0" expanded="true" />
-            <element signature="e#8438#10363#0" expanded="true" />
-            <element signature="e#10362#10363#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/journal/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1598">
-          <caret line="94" column="6669" selection-start-line="94" selection-start-column="6669" selection-end-line="94" selection-end-column="6669" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#12174#12398#0" expanded="true" />
-            <element signature="e#12397#12398#0" expanded="true" />
-            <element signature="e#13343#14920#0" expanded="true" />
-            <element signature="e#14294#14877#0" expanded="true" />
-            <element signature="e#14876#14877#0" expanded="true" />
-            <element signature="e#14919#14920#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/journal/Master.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -829,16 +746,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/journal/Teacher.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/journal/Marks.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="171" column="32" selection-start-line="171" selection-start-column="32" selection-end-line="171" selection-end-column="32" />
+        <state relative-caret-position="938">
+          <caret line="154" column="16" lean-forward="true" selection-start-line="154" selection-start-column="16" selection-end-line="154" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5310#6739#0" expanded="true" />
-            <element signature="e#6226#6696#0" expanded="true" />
-            <element signature="e#6695#6696#0" expanded="true" />
-            <element signature="e#6738#6739#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/journal/ForTeacher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1577215255075" expanded="true" signature="307:1477" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/journal/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="109" selection-start-line="109" selection-end-line="109" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4123#6046#0" expanded="true" />
+            <element signature="e#6045#6046#0" expanded="true" />
+            <element signature="e#6109#8034#0" expanded="true" />
+            <element signature="e#8033#8034#0" expanded="true" />
+            <element signature="e#8097#10022#0" expanded="true" />
+            <element signature="e#10021#10022#0" expanded="true" />
+            <element signature="e#10085#12010#0" expanded="true" />
+            <element signature="e#12009#12010#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/journal/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1615">
+          <caret line="106" column="107" selection-start-line="106" selection-start-column="107" selection-end-line="106" selection-end-column="107" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#12117#12341#0" expanded="true" />
+            <element signature="e#12340#12341#0" expanded="true" />
+            <element signature="e#13286#14863#0" expanded="true" />
+            <element signature="e#14237#14820#0" expanded="true" />
+            <element signature="e#14819#14820#0" expanded="true" />
+            <element signature="e#14862#14863#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/journal/Teacher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-65">
+          <caret line="129" column="35" selection-start-line="129" selection-start-column="35" selection-end-line="129" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6338#7846#0" expanded="true" />
+            <element signature="e#7289#7803#0" expanded="true" />
+            <element signature="e#7802#7803#0" expanded="true" />
+            <element signature="e#7845#7846#0" expanded="true" />
           </folding>
         </state>
       </provider>
