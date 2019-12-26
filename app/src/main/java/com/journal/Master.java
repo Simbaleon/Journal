@@ -36,9 +36,9 @@ public class Master extends AppCompatActivity {
     LinearLayout.LayoutParams forLessons = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
     LinearLayout.LayoutParams forDz = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
-    public void teacher(String name, String surname, String id, String login, String pass, String position,
-                        String email, String phone, String qualification, boolean is_admin) {
-    }
+//   Teacher(String name, String surname, String id, String login, String pass, String position,
+//                        String email, String phone, String qualification, boolean is_admin) {
+//    }
 
 
     @Override
@@ -91,12 +91,13 @@ public class Master extends AppCompatActivity {
         Rasp();
     }
     public void Rasp(){
-        Reg.setOnClickListener(new View.OnClickListener() {
+       Reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Master.this, ForMaster.class);
                 startActivity(intent);
-            }});
+            }
+        });
         int nowText = 0;
         for (int d = 1; d < 6; d++) {
             Context style_less = new ContextThemeWrapper(findViewById(hashMap.get(d)).getContext(), hashMap.get(d + 10));
@@ -133,7 +134,7 @@ public class Master extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 newDz = Dz.getText().toString();
-                                setContentView(R.layout.week);
+                                setContentView(R.layout.week_for_teacher);
                                 textView[pr].setText(newDz);
                                 is_newdz = true;
                                 Rasp();
