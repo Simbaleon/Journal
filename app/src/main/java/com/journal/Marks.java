@@ -117,14 +117,17 @@ public class Marks extends AppCompatActivity implements View.OnClickListener {
         TextView textDay = new TextView(this);
         textDay.setTextColor(Color.parseColor("#000002"));
         textDay.setText("Предмет");
+        textDay.setTextSize(13);
         tableRowDay.addView(textDay, layoutParamsBtn);
         textDay = new TextView(this);
         textDay.setTextColor(Color.parseColor("#000002"));
         textDay.setText("Оценки");
+        textDay.setTextSize(13);
         tableRowDay.addView(textDay, layoutParamsBtn);
         textDay = new TextView(this);
         textDay.setTextColor(Color.parseColor("#000002"));
         textDay.setText("Средний балл");
+        textDay.setTextSize(13);
         tableRowDay.addView(textDay, layoutParamsBtn);
         layoutRoot.addView(tableRowDay, layoutParams);
         String g;
@@ -136,7 +139,7 @@ public class Marks extends AppCompatActivity implements View.OnClickListener {
             if (g.length() > 8) g = g.substring(0, 9) + ".";
             textViews[i].setText(g);
             textViews[i].setTextColor(Color.parseColor("#000002"));
-            final Context contextTextViewDz = new ContextThemeWrapper(this, R.style.Monday);
+            final Context contextTextViewDz = new ContextThemeWrapper(this, R.style.ForRegistr);
             TextView button = new TextView(contextTextViewDz);
             button.setOnClickListener(this);
             button.setId(i);
@@ -164,7 +167,6 @@ public class Marks extends AppCompatActivity implements View.OnClickListener {
 
     public void getJsonObject() throws IOException, JSONException {
         jsonObject = new JSONArray(a);
-//Response<JSONObject> jsonObject = jsonObjectCall.execute();
     }
 
     @Override
