@@ -25,7 +25,7 @@ public class Teacher extends AppCompatActivity {
     String email, phone, qualification;
     boolean is_admin, is_newdz = false;
     public Button[] btns;
-    boolean la = false;
+    boolean la = false, Pr;
     public int id, permit;
     public String name, surname, login, pass, position;
     public TextView[] textView;
