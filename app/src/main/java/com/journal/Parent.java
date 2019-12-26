@@ -3,6 +3,8 @@ package com.journal;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.view.Window;
@@ -17,15 +19,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.HashMap;
 
-public class Parent extends AppCompatActivity {
+public class Parent extends AppCompatActivity implements Parcelable {
 
-    String clas;
-    int id_child;
+    int id, id_child;
+    String name, surname;
     public Button[] btns;
     public TextView[] textView;
     public static String dz;
     String[] array;
-    private final int USERID = 7000;
+    private int USERID = 7000;
     private int countID, pr;
     TextView Klas;
     TextView Dz;
@@ -35,10 +37,36 @@ public class Parent extends AppCompatActivity {
     LinearLayout.LayoutParams forDz = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
 
-    public void parent(String name, String surname, String id, String login, String pass, String position,
-                        String clas, int id_child) {
+    Parent(int id, String name, String surname, int id_child){
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.id_child = id_child;
     }
 
+
+    protected Parent(Parcel in) {
+        id = in.readInt();
+        id_child = in.readInt();
+        name = in.readString();
+        surname = in.readString();
+        array = in.createStringArray();
+        USERID = in.readInt();
+        countID = in.readInt();
+        pr = in.readInt();
+    }
+
+    public static final Creator<Parent> CREATOR = new Creator<Parent>() {
+        @Override
+        public Parent createFromParcel(Parcel in) {
+            return new Parent(in);
+        }
+
+        @Override
+        public Parent[] newArray(int size) {
+            return new Parent[size];
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -152,6 +180,23 @@ public class Parent extends AppCompatActivity {
         } catch (Exception e) {
 
         }
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeInt(id_child);
+        dest.writeString(name);
+        dest.writeString(surname);
+        dest.writeStringArray(array);
+        dest.writeInt(USERID);
+        dest.writeInt(countID);
+        dest.writeInt(pr);
     }
 }
 

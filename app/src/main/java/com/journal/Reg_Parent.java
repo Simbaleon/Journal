@@ -25,7 +25,7 @@ public class Reg_Parent extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.reg_teacher);
+        setContentView(R.layout.reg_student);
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         t1 = (EditText) findViewById(R.id.t1);

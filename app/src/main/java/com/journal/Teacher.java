@@ -3,6 +3,8 @@ package com.journal;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.view.Window;
@@ -17,18 +19,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.HashMap;
 
-public class Teacher extends AppCompatActivity {
+public class Teacher extends AppCompatActivity implements Parcelable {
 
-    String email, phone, qualification;
-    boolean is_admin, is_newdz = false;
+    boolean is_newdz = false;
     public Button[] btns;
     public TextView[] textView;
     public TextView mon;
     public EditText[] editText;
     public static String dz, Pr, newDz;
     String[] array;
-    private final int USERID = 6000;
+    private int USERID = 6000;
     private int countID, pr;
+    int id, permit;
+    String name, surname, email, phone, qualification;
+    boolean is_admin;
     TextView Klas;
     TextView Dz;
     Button Upg;
@@ -36,10 +40,45 @@ public class Teacher extends AppCompatActivity {
     LinearLayout.LayoutParams forLessons = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
     LinearLayout.LayoutParams forDz = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
-    public void teacher(String name, String surname, String id, String login, String pass, String position,
-                        String email, String phone, String qualification, boolean is_admin) {
+    Teacher(int id, String name, String surname, String email, String phone, String qualification, Boolean is_admin, int permit) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.phone = phone;
+        this.qualification = qualification;
+        this.is_admin = is_admin;
+        this.permit = permit;
     }
 
+
+    protected Teacher(Parcel in) {
+        is_newdz = in.readByte() != 0;
+        array = in.createStringArray();
+        USERID = in.readInt();
+        countID = in.readInt();
+        pr = in.readInt();
+        id = in.readInt();
+        permit = in.readInt();
+        name = in.readString();
+        surname = in.readString();
+        email = in.readString();
+        phone = in.readString();
+        qualification = in.readString();
+        is_admin = in.readByte() != 0;
+    }
+
+    public static final Creator<Teacher> CREATOR = new Creator<Teacher>() {
+        @Override
+        public Teacher createFromParcel(Parcel in) {
+            return new Teacher(in);
+        }
+
+        @Override
+        public Teacher[] newArray(int size) {
+            return new Teacher[size];
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,11 +122,11 @@ public class Teacher extends AppCompatActivity {
         btns = new Button[40];
         textView = new TextView[40];
         array = new String[5];
-        array[0] = "Математика:7;Русский язык:45;География:16;Физика:5;Литература:58;";
-        array[1] = "Русский язык:45;Математика:7;Русский язык:45;География:16;Физика:5;Литература:58;";
-        array[2] = "Физика:5;Математика:7;Русский язык:45;География:16;Литература:58;";
-        array[3] = "География:16;Физика:5;Литература:58;Математика:7;Русский язык:45";
-        array[4] = "Математика:7;Русский язык:45;География:16;Физика:5;Литература:58;";
+        array[0] = "9б:7;5а:45;8б:16;9а:5;10а:58;11:5";
+        array[1] = "11а:45;7б:7;8а:45;9б:16;7а:5;6б:58";
+        array[2] = "5б:5;10б:7;5б:45;9а:16;11б:58";
+        array[3] = "7б:16;8б:5;10а:58;5а:7;9б:45";
+        array[4] = "8б:7;5б:45;11а:16;6б:5;11б:58";
         Rasp();
     }
     public void Rasp(){
@@ -168,5 +207,26 @@ public class Teacher extends AppCompatActivity {
         }
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeByte((byte) (is_newdz ? 1 : 0));
+        dest.writeStringArray(array);
+        dest.writeInt(USERID);
+        dest.writeInt(countID);
+        dest.writeInt(pr);
+        dest.writeInt(id);
+        dest.writeInt(permit);
+        dest.writeString(name);
+        dest.writeString(surname);
+        dest.writeString(email);
+        dest.writeString(phone);
+        dest.writeString(qualification);
+        dest.writeByte((byte) (is_admin ? 1 : 0));
+    }
 }
 

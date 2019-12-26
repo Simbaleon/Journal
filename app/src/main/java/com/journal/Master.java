@@ -45,7 +45,6 @@ public class Master extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.week_for_master);
-        mon = findViewById(R.id.mon);
         Reg = (Button)findViewById(R.id.reg);
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -84,11 +83,11 @@ public class Master extends AppCompatActivity {
         btns = new Button[40];
         textView = new TextView[40];
         array = new String[5];
-        array[0] = "Математика:7;Русский язык:45;География:16;Физика:5;Литература:58;";
-        array[1] = "Русский язык:45;Математика:7;Русский язык:45;География:16;Физика:5;Литература:58;";
-        array[2] = "Физика:5;Математика:7;Русский язык:45;География:16;Литература:58;";
-        array[3] = "География:16;Физика:5;Литература:58;Математика:7;Русский язык:45";
-        array[4] = "Математика:7;Русский язык:45;География:16;Физика:5;Литература:58;";
+        array[0] = "9б:7;5а:45;8б:16;9а:5;10а:58";
+        array[1] = "11а:45;7б:7;8а:45;9б:16;7а:5;6б:58";
+        array[2] = "5б:5;10б:7;5б:45;9а:16;11б:58";
+        array[3] = "7б:16;8б:5;10а:58;5а:7;9б:45";
+        array[4] = "8б:7;5б:45;11а:16;6б:5;11б:58";
         Rasp();
     }
     public void Rasp(){

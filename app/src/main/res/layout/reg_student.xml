@@ -28,11 +28,11 @@
 
             <TextView
                 android:id="@+id/reg"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="45dp"
                 android:background="@drawable/botton"
                 android:gravity="center"
-                android:textSize="23dp"
+                android:textSize="20dp"
                 android:textColor="#cfcaca"
                 android:paddingRight="4dp"
                 android:paddingLeft="4dp"
@@ -80,17 +80,20 @@
 
             <Button
                 android:id="@+id/Reg"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/botton"
-                android:layout_marginRight="68dp"
-                android:layout_marginLeft="68dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginLeft="0dp"
                 android:layout_marginTop="25dp"
                 android:paddingTop="7dp"
                 android:paddingBottom="7dp"
+                android:paddingRight="5dp"
+                android:paddingLeft="5dp"
                 android:fontFamily="monospace"
+                android:layout_gravity="center"
                 android:textAllCaps="false"
-                android:textSize="22dp"
+                android:textSize="18dp"
                 android:textColor="#cfcaca"
                 android:text="Зарегистрировать" />
             <Button

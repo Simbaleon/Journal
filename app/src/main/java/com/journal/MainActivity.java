@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
+import android.os.Parcelable;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -13,6 +14,8 @@ import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.IOException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     public Retrofit retrofit;
     Server server;
     JSONObject jsonObject;
-    Call<JSONObject> forTeacher;
+    Call<JSONObject> jsonObjectCall;
 
 
     @Override
@@ -54,43 +57,111 @@ public class MainActivity extends AppCompatActivity {
         if (T4) enter4.setBackgroundResource(R.drawable.enter);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://rawgit.com/startandroid/data/master/messages/")
+                .baseUrl("http://desktop-545kfou/OpenServer/OSPanel/domains/hui-o4ko.ru/database.sqlite/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        Server messagesApi = retrofit.create(Server.class);
-
-
+        Server server = retrofit.create(Server.class);
 
     }
-    public void addListenerOnButton() {
-            login = (EditText) findViewById(R.id.login);
-            pass = (EditText) findViewById(R.id.Pas);
 
-            enter1.setOnClickListener(
+    public int checkJson() throws JSONException {
+        return jsonObject.getInt("resultCode");
+    }
+
+    public void getJsonObject() throws IOException, JSONException {
+        Response<JSONObject> jsonObject = jsonObjectCall.execute();
+    }
+
+    public Teacher startTeacher() throws JSONException {
+        int id = jsonObject.getInt("id");
+        String name = jsonObject.getString("name");
+        String surname = jsonObject.getString("surname");
+        String email = jsonObject.getString("email");
+        String phone = jsonObject.getString("phone");
+        String qualification = jsonObject.getString("qualification");
+        boolean is_admin = jsonObject.getBoolean("is_admin");
+        Integer permit = jsonObject.getInt("permit");
+
+        Teacher teacher = new Teacher(id, name, surname, email, phone, qualification, is_admin, permit);
+        return teacher;
+    }
+
+    public Student startStudent() throws JSONException {
+        int id = jsonObject.getInt("id");
+        String name = jsonObject.getString("name");
+        String surname = jsonObject.getString("surname");
+        String clas = jsonObject.getString("clas");
+        Integer permit = jsonObject.getInt("permit");
+
+        Student student = new Student(id, name, surname, clas, permit);
+        return student;
+
+    }
+    public Parent startParent() throws JSONException {
+        int id = jsonObject.getInt("id");
+        String name = jsonObject.getString("name");
+        String surname = jsonObject.getString("surname");
+        Integer child_id = jsonObject.getInt("child_id");
+        Parent parent = new Parent(id, name, surname, child_id);
+        return parent;
+
+    }
+
+    public void addListenerOnButton() {
+        login = (EditText) findViewById(R.id.login);
+        pass = (EditText) findViewById(R.id.Pas);
+
+        enter1.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         {
-                            if (!T2 && !T3 && !T4 && T1){
-                                if ((login.getText().toString().equals(login_txt)) && (pass.getText().toString().equals(pass_txt))) {
+                            if (!T2 && !T3 && !T4 && T1) {
+                                Intent inten = new Intent(MainActivity.this, Student.class);
+                                startActivity(inten);
+                                if (login.length() >= 1 && pass.length() >= 1) {
+                                    jsonObjectCall = server.checkPupilFromServer(login.getText().toString(), pass.getText().toString());
+                                    try {
+                                        getJsonObject();
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
                                     Intent intent = new Intent(MainActivity.this, Student.class);
                                     startActivity(intent);
+                                    try {
+                                        if (checkJson() == 0) {
+                                            if (jsonObject.getString("position").equals("Student")) {
+                                                Student student = startStudent();
+                                                intent = new Intent(MainActivity.this, Student.class);
+                                                intent.putExtra("student", (Parcelable) student);
+                                            }
+                                        }
+                                        startActivity(intent);
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
 
                                 } else Toast.makeText(
                                         MainActivity.this, "Неверный логин или пароль",
                                         Toast.LENGTH_SHORT
                                 ).show();
-                            }else if ((T2 || T3 || T4) && !T1){
+                            } else if ((T2 || T3 || T4) && !T1) {
                                 enter2.setBackgroundResource(R.drawable.botton);
                                 enter3.setBackgroundResource(R.drawable.botton);
                                 enter4.setBackgroundResource(R.drawable.botton);
                                 enter1.setBackgroundResource(R.drawable.enter);
-                                T1 = true; T2 = false; T3 = false; T4 = false;
+                                T1 = true;
+                                T2 = false;
+                                T3 = false;
+                                T4 = false;
                                 Toast.makeText(
                                         MainActivity.this, "Подтверидте вход как ученик",
                                         Toast.LENGTH_SHORT
                                 ).show();
-                            }else if (!T2 && !T3 && !T4 && !T1){
+                            } else if (!T2 && !T3 && !T4 && !T1) {
                                 enter1.setBackgroundResource(R.drawable.enter);
                                 T1 = true;
                                 Toast.makeText(
@@ -102,142 +173,196 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
-            enter2.setOnClickListener(
-                    new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            {
-                                if (!T1 && !T3 && !T4 && T2){
-//                                    forTeacher.enqueue(new Callback<JSONObject>() {
-//                                                           @Override
-//                                                           public void onResponse(Call<JSONObject> call, Response<JSONObject> response) {
-//                                                               jsonObject = response.body();
-//                                                           }
-//
-//                                                           @Override
-//                                                           public void onFailure(Call<JSONObject> call, Throwable t) {
-//
-//                                                           }
-//                                                       });
-//                                    try {
-//                                        if (jsonObject.getInt("resultCode") == 1){
-//                                            Toast.makeText(
-//                                                    MainActivity.this, "Заполинте поля login и password",
-//                                                    Toast.LENGTH_SHORT
-//                                            ).show();                                        }
-//                                    } catch (JSONException e) {
-//                                        e.printStackTrace();
-//                                    }
+        enter2.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        {
+                            if (!T1 && !T3 && !T4 && T2) {
 
-                                    if ((login.getText().toString().equals(login_txt)) && (pass.getText().toString().equals(pass_txt))) {
-                                        Intent intent = new Intent(MainActivity.this, Teacher.class);
+                                if (login.length() >= 1 && pass.length() >= 1) {
+                                    jsonObjectCall = server.checkTeacherFromServer(login.getText().toString(), pass.getText().toString());
+                                    try {
+                                        getJsonObject();
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                    Intent intent = new Intent(MainActivity.this, Student.class);
+                                    startActivity(intent);
+                                    try {
+                                        if (checkJson() == 0) {
+                                            if (jsonObject.getString("position").equals("Teacher")) {
+                                                Teacher teacher = startTeacher();
+                                                intent = new Intent(MainActivity.this, Teacher.class);
+                                                intent.putExtra("teacher", (Parcelable) teacher);
+                                            }
+                                        }
                                         startActivity(intent);
-                                    } else Toast.makeText(
-                                            MainActivity.this, "Неверный логин или пароль",
-                                            Toast.LENGTH_SHORT
-                                    ).show();
-                                }else if ((T1 || T3 || T4) && !T2){
-                                    enter1.setBackgroundResource(R.drawable.botton);
-                                    enter3.setBackgroundResource(R.drawable.botton);
-                                    enter4.setBackgroundResource(R.drawable.botton);
-                                    enter2.setBackgroundResource(R.drawable.enter);
-                                    T2 = true; T1 = false; T3 = false; T4 = false;
-                                    Toast.makeText(
-                                            MainActivity.this, "Подтверидте вход как учитель",
-                                            Toast.LENGTH_SHORT
-                                    ).show();
-                                }else if (!T2 && !T3 && !T4 && !T1){
-                                    enter2.setBackgroundResource(R.drawable.enter);
-                                    T2 = true;
-                                    Toast.makeText(
-                                            MainActivity.this, "Подтверидте вход как учитель",
-                                            Toast.LENGTH_SHORT
-                                    ).show();
-                                }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
+
+                                } else Toast.makeText(
+                                        MainActivity.this, "Неверный логин или пароль",
+                                        Toast.LENGTH_SHORT
+                                ).show();
+                            } else if ((T1 || T3 || T4) && !T2) {
+                                enter1.setBackgroundResource(R.drawable.botton);
+                                enter3.setBackgroundResource(R.drawable.botton);
+                                enter4.setBackgroundResource(R.drawable.botton);
+                                enter2.setBackgroundResource(R.drawable.enter);
+                                T2 = true;
+                                T1 = false;
+                                T3 = false;
+                                T4 = false;
+                                Toast.makeText(
+                                        MainActivity.this, "Подтверидте вход как учитель",
+                                        Toast.LENGTH_SHORT
+                                ).show();
+                            } else if (!T2 && !T3 && !T4 && !T1) {
+                                enter2.setBackgroundResource(R.drawable.enter);
+                                T2 = true;
+                                Toast.makeText(
+                                        MainActivity.this, "Подтверидте вход как учитель",
+                                        Toast.LENGTH_SHORT
+                                ).show();
                             }
                         }
                     }
-            );
-            enter3.setOnClickListener(
-                    new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            {
-                                if (!T1 && !T2 && !T4 && T3){
-                                    if ((login.getText().toString().equals(login_txt)) && (pass.getText().toString().equals(pass_txt))) {
-                                        Intent intent = new Intent(MainActivity.this, Parent.class);
+                }
+        );
+        enter3.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        {
+                            if (!T1 && !T2 && !T4 && T3) {
+                                if (login.length() >= 1 && pass.length() >= 1) {
+                                    jsonObjectCall = server.checkPupilFromServer(login.getText().toString(), pass.getText().toString());
+                                    try {
+                                        getJsonObject();
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                    Intent intent = new Intent(MainActivity.this, Parent.class);
+                                    startActivity(intent);
+                                    try {
+                                        if (checkJson() == 0) {
+                                            if (jsonObject.getString("position").equals("Parent")) {
+                                                Parent parent = startParent();
+                                                intent = new Intent(MainActivity.this, Parent.class);
+                                                intent.putExtra("parent", (Parcelable) parent);
+                                            }
+                                        }
                                         startActivity(intent);
-                                    } else Toast.makeText(
-                                            MainActivity.this, "Неверный логин или пароль",
-                                            Toast.LENGTH_SHORT
-                                    ).show();
-                                }else if ((T1 || T2 || T4) && !T3){
-                                    enter1.setBackgroundResource(R.drawable.botton);
-                                    enter2.setBackgroundResource(R.drawable.botton);
-                                    enter4.setBackgroundResource(R.drawable.botton);
-                                    enter3.setBackgroundResource(R.drawable.enter);
-                                    T3 = true; T1 = false; T2 = false; T4 = false;
-                                    Toast.makeText(
-                                            MainActivity.this, "Подтверидте вход как родитель",
-                                            Toast.LENGTH_SHORT
-                                    ).show();
-                                }else if (!T2 && !T3 && !T4 && !T1){
-                                    enter3.setBackgroundResource(R.drawable.enter);
-                                    T3 = true;
-                                    Toast.makeText(
-                                            MainActivity.this, "Подтверидте вход как родитель",
-                                            Toast.LENGTH_SHORT
-                                    ).show();
-                                }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
+                                } else Toast.makeText(
+                                        MainActivity.this, "Неверный логин или пароль",
+                                        Toast.LENGTH_SHORT
+                                ).show();
+                            } else if ((T1 || T2 || T4) && !T3) {
+                                enter1.setBackgroundResource(R.drawable.botton);
+                                enter2.setBackgroundResource(R.drawable.botton);
+                                enter4.setBackgroundResource(R.drawable.botton);
+                                enter3.setBackgroundResource(R.drawable.enter);
+                                T3 = true;
+                                T1 = false;
+                                T2 = false;
+                                T4 = false;
+                                Toast.makeText(
+                                        MainActivity.this, "Подтверидте вход как родитель",
+                                        Toast.LENGTH_SHORT
+                                ).show();
+                            } else if (!T2 && !T3 && !T4 && !T1) {
+                                enter3.setBackgroundResource(R.drawable.enter);
+                                T3 = true;
+                                Toast.makeText(
+                                        MainActivity.this, "Подтверидте вход как родитель",
+                                        Toast.LENGTH_SHORT
+                                ).show();
                             }
                         }
                     }
-            );
-            enter4.setOnClickListener(
-                    new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            {
-                                if (!T1 && !T2 && !T3 && T4){
-                                    if ((login.getText().toString().equals(login_txt)) && (pass.getText().toString().equals(pass_txt))) {
-                                        Intent intent = new Intent(MainActivity.this, List.class);
+                }
+        );
+        enter4.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        {
+                            if (!T1 && !T2 && !T3 && T4) {
+
+                                if (login.length() >= 1 && pass.length() >= 1) {
+                                    jsonObjectCall = server.checkTeacherFromServer(login.getText().toString(), pass.getText().toString());
+                                    try {
+                                        getJsonObject();
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                    Intent intent = new Intent(MainActivity.this, Student.class);
+                                    startActivity(intent);
+                                    try {
+                                        if (checkJson() == 0) {
+                                            if (jsonObject.getString("position").equals("Teacher")) {
+                                                Teacher teacher = startTeacher();
+                                                intent = new Intent(MainActivity.this, Master.class);
+                                                intent.putExtra("teacher", (Parcelable) teacher);
+                                            }
+                                        }
                                         startActivity(intent);
-                                    } else Toast.makeText(
-                                            MainActivity.this, "Неверный логин или пароль",
-                                            Toast.LENGTH_SHORT
-                                    ).show();
-                                }else if ((T1 || T2 || T3) && !T4){
-                                    enter1.setBackgroundResource(R.drawable.botton);
-                                    enter2.setBackgroundResource(R.drawable.botton);
-                                    enter3.setBackgroundResource(R.drawable.botton);
-                                    enter4.setBackgroundResource(R.drawable.enter);
-                                    T4 = true; T1 = false; T2 = false; T3 = false;
-                                    Toast.makeText(
-                                            MainActivity.this, "Подтверидте вход как директор",
-                                            Toast.LENGTH_SHORT
-                                    ).show();
-                                }else if (!T2 && !T3 && !T4 && !T1){
-                                    enter4.setBackgroundResource(R.drawable.enter);
-                                    T4 = true;
-                                    Toast.makeText(
-                                            MainActivity.this, "Подтверидте вход как директор",
-                                            Toast.LENGTH_SHORT
-                                    ).show();
-                                }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
+                                } else Toast.makeText(
+                                        MainActivity.this, "Неверный логин или пароль",
+                                        Toast.LENGTH_SHORT
+                                ).show();
+                            } else if ((T1 || T2 || T3) && !T4) {
+                                enter1.setBackgroundResource(R.drawable.botton);
+                                enter2.setBackgroundResource(R.drawable.botton);
+                                enter3.setBackgroundResource(R.drawable.botton);
+                                enter4.setBackgroundResource(R.drawable.enter);
+                                T4 = true;
+                                T1 = false;
+                                T2 = false;
+                                T3 = false;
+                                Toast.makeText(
+                                        MainActivity.this, "Подтверидте вход как директор",
+                                        Toast.LENGTH_SHORT
+                                ).show();
+                            } else if (!T2 && !T3 && !T4 && !T1) {
+                                enter4.setBackgroundResource(R.drawable.enter);
+                                T4 = true;
+                                Toast.makeText(
+                                        MainActivity.this, "Подтверидте вход как директор",
+                                        Toast.LENGTH_SHORT
+                                ).show();
                             }
                         }
                     }
-            );
+                }
+        );
     }
 
     @Override
     public void onBackPressed() {
 
-        if(backPressedTime + 2000 > System.currentTimeMillis()){
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
             backToast.cancel();
             super.onBackPressed();
             return;
-        }else{
+        } else {
             backToast = Toast.makeText(getBaseContext(), "Нажмите еще раз, чтобы выйти", Toast.LENGTH_SHORT);
             backToast.show();
         }

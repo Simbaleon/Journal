@@ -8,31 +8,25 @@ import retrofit2.http.POST;
 
 public interface Server {
 
-@GET("checkPerson")
-    Call<JSONObject> checkFromServer(String login, String password);
+    @GET("aut/login")
+    Call<JSONObject> checkTeacherFromServer(String login, String pass);
 
-@GET("getRasp")
-    Call<JSONObject> getRaspFropServer (int id, int data);
+    @POST("setTeacher")
+    Call<JSONObject> registerTeacherToServer(String Login, String password, String name, String surname, String position, String email, String phone, String quality);
 
-@GET("getStudent")
-    Call<JSONObject> getStudentFromServer (String login, String password);
+    @GET("aut/login")
+    Call<JSONObject> checkPupilFromServer(String login, String pass);
 
-@GET("setStudentElective")
-    Call<JSONObject> setStudentElectiveToServer(int id, String electiveName);
+    @POST("auth/register")
+    Call<JSONObject> registerPupulToServer(String Login, String password, String name, String surname, String position, String email, String phone, String quality);
 
-@GET("deleteStudentElective")
-    Call<JSONObject> deleteStudentElectiveFromSetvet (int id, String electiveName);
+    @GET("auth/login")
+    Call<JSONObject> checkParentFromServer();
 
-@GET("getTeacher")
-    Call<JSONObject> getTeacherFromServer (String login, String password);
+    @POST("auth/register")
+    Call<JSONObject> registerParentToServer(String Login, String password, String name, String surname, String position, String email, String phone, String quality);
 
-@GET("getTeacherSchool")
-    Call<JSONObject> getTeacherSchoolFromServer ();
-
-@POST("setDz")
-    void setDzToServer (int id, String predmet, String dz);
-
-@POST("setmark")
-    void setMarkToServer (int id, String predmet, int mark);
+    @POST("getTeacherSchool")
+    Call<JSONObject> getTeacherSchoolFromServer();
 }
 

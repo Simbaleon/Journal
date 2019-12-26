@@ -3,6 +3,8 @@ package com.journal;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.view.Window;
@@ -17,27 +19,56 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.HashMap;
 
-public class Student extends AppCompatActivity {
+public class Student extends AppCompatActivity implements Parcelable {
 
-    String clas;
+    int id, permit;
+    String name, surname, clas;
     public Button[] btns;
     public TextView[] textView;
     public static String dz;
     String[] array;
-    private final int USERID = 7000;
+    private int USERID = 7000;
     private int countID, pr;
     TextView Klas;
     TextView Dz;
-    Button Upg;
+    Button Upg, Mar;
     HashMap<Integer, Integer> hashMap = new HashMap<>();
     LinearLayout.LayoutParams forLessons = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
     LinearLayout.LayoutParams forDz = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
 
-    public void student(String name, String surname, String id, String login, String pass, String position,
-                        String clas) {
+//    Student(int id, String name, String surname, String clas, int permit){
+//        this.id = id;
+//        this.name = name;
+//        this.surname = surname;
+//        this.clas = clas;
+//        this.permit = permit;
+//    }
+
+
+    protected Student(Parcel in) {
+        id = in.readInt();
+        permit = in.readInt();
+        name = in.readString();
+        surname = in.readString();
+        clas = in.readString();
+        array = in.createStringArray();
+        USERID = in.readInt();
+        countID = in.readInt();
+        pr = in.readInt();
     }
 
+    public static final Creator<Student> CREATOR = new Creator<Student>() {
+        @Override
+        public Student createFromParcel(Parcel in) {
+            return new Student(in);
+        }
+
+        @Override
+        public Student[] newArray(int size) {
+            return new Student[size];
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +105,7 @@ public class Student extends AppCompatActivity {
         hashMap.put(18, R.drawable.wednesday);
         hashMap.put(19, R.drawable.thursday);
         hashMap.put(20, R.drawable.friday);
+        Mar = findViewById(R.id.mar);
 
         Intent intent = getIntent();
         btns = new Button[40];
@@ -89,8 +121,15 @@ public class Student extends AppCompatActivity {
 
     }
     public void Rasp() {
+        Mar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Student.this, Marks.class);
+                startActivity(intent);
+            }});
         int nowText = 0;
         for (int d = 1; d < 6; d++) {
+            Mar.setText(name);
             Context style_less = new ContextThemeWrapper(findViewById(hashMap.get(d)).getContext(), hashMap.get(d + 10));
             Context style_dz = new ContextThemeWrapper(findViewById(hashMap.get(d)).getContext(), hashMap.get(d + 5));
             String[] a = array[d - 1].split(";");
@@ -133,7 +172,7 @@ public class Student extends AppCompatActivity {
                 });
                 countID++;
                 textView[nowText] = new TextView(style_dz);
-                textView[nowText].setText(b[1]);
+//                textView[nowText].setText(jsonObject.getJSONArray(dayEnd).getJSONObject(nowText).getString("homework"));
                 LinearLayout list_dz = findViewById(hashMap.get(d));
                 list_dz.addView(textView[nowText], forDz);
                 nowText++;
@@ -151,6 +190,24 @@ public class Student extends AppCompatActivity {
         } catch (Exception e) {
 
         }
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeInt(permit);
+        dest.writeString(name);
+        dest.writeString(surname);
+        dest.writeString(clas);
+        dest.writeStringArray(array);
+        dest.writeInt(USERID);
+        dest.writeInt(countID);
+        dest.writeInt(pr);
     }
 }
 
