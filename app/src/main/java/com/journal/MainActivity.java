@@ -57,14 +57,16 @@ public class MainActivity extends AppCompatActivity {
         if (T4) enter4.setBackgroundResource(R.drawable.enter);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://desktop-545kfou/OpenServer/OSPanel/domains/hui-o4ko.ru/database.sqlite/")
+                .baseUrl("file://desktop-545kfou/OpenServer/OSPanel/domains/hui-o4ko.ru/database.sqlite/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         Server server = retrofit.create(Server.class);
 
     }
 
-
+public void getJsonObject() throws IOException, JSONException{
+        jsonObject = new JSONObject(a);
+}
 
 
     public void addListenerOnButton() {

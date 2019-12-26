@@ -21,12 +21,12 @@ public interface Server {
     Call<JSONObject> registerPupulToServer(String Login, String password, String name, String surname, String position, String email, String phone, String quality);
 
     @GET("auth/login")
-    Call<JSONObject> checkParentFromServer();
+    Call<JSONObject> checkParentFromServer(String login, String pass);
 
     @POST("auth/register")
     Call<JSONObject> registerParentToServer(String Login, String password, String name, String surname, String position, String email, String phone, String quality);
 
     @POST("getTeacherSchool")
-    Call<JSONObject> getTeacherSchoolFromServer();
+    Call<JSONObject> getTeacherSchoolFromServer(String login, String pass);
 }
 

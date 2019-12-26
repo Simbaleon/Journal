@@ -29,7 +29,7 @@ import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Student extends AppCompatActivity  {
+public class Student extends AppCompatActivity implements Parcelable {
 
     int id, id_child;
     public String name, surname, a;
@@ -51,26 +51,37 @@ public class Student extends AppCompatActivity  {
     LinearLayout.LayoutParams forLessons = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
     LinearLayout.LayoutParams forDz = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
-//    Student(int id, String name, String surname, int id_child){
-//        this.id = id;
-//        this.name = name;
-//        this.surname = surname;
-//        this.id_child = id_child;
-//    }
+    Student(int id, String name, String surname, int id_child){
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.id_child = id_child;
+    }
 
 
-//    protected Student(Parcel in) {
-//        id = in.readInt();
-//        id_child = in.readInt();
-//        name = in.readString();
-//        surname = in.readString();
-//        array = in.createStringArray();
-//        USERID = in.readInt();
-//        countID = in.readInt();
-//        pr = in.readInt();
-//    }
+    protected Student(Parcel in) {
+        id = in.readInt();
+        id_child = in.readInt();
+        name = in.readString();
+        surname = in.readString();
+        array = in.createStringArray();
+        USERID = in.readInt();
+        countID = in.readInt();
+        pr = in.readInt();
+    }
 
 
+    public static final Creator<Student> CREATOR = new Creator<Student>() {
+        @Override
+        public Student createFromParcel(Parcel in) {
+            return new Student(in);
+        }
+
+        @Override
+        public Student[] newArray(int size) {
+            return new Student[size];
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -240,6 +251,23 @@ public class Student extends AppCompatActivity  {
         }
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeInt(id_child);
+        dest.writeString(name);
+        dest.writeString(surname);
+        dest.writeString(a);
+        dest.writeStringArray(array);
+        dest.writeInt(USERID);
+        dest.writeInt(countID);
+        dest.writeInt(pr);
+    }
 }
 
 
